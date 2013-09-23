@@ -4,7 +4,7 @@ def isCached(mix_id=:mix_id)
 	mix = Mix.first(:id => mix_id.to_i)
 
 	if (defined? mix.tracks)
-		(mix.tracks.length > 0)
+		(mix.tracks_dataset.count > 0)
 	else
 		false
 	end
