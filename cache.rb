@@ -1,7 +1,7 @@
 require_relative 'models'
 
 def isCached(mix_id=:mix_id)
-	mix = Mix.select().where(:id => mix_id.to_i)
+	mix = Mix.first(:id => mix_id.to_i)
 
 	if (defined? mix.tracks)
 		(mix.tracks.length > 0)
