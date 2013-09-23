@@ -15,7 +15,8 @@ DB.create_table? :mixes do
 end
 
 DB.create_table? :mixes_tracks do
-       	int             :mix_id
-        int             :track_id
+       	foreign_key     :mix_id, :mixes, :null => false
+       	foreign_key     :track_id, :tracks, :null => false
        	primary_key [:mix_id, :track_id]
+       	index [:mix_id, :track_id]
 end
