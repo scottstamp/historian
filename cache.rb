@@ -2,7 +2,11 @@ require_relative 'models'
 
 def isCached(mix_id=:mix_id)
 	mix = Mix.first(:id => mix_id.to_i)
-	(mix.tracks_dataset.count > 0)
+	unless mix.nil?
+		(mix.tracks_dataset.count > 0)
+	else
+		false
+	end
 end
 
 def cacheMix(mix=:mix, tracks=:tracks)
