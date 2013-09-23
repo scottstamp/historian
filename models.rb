@@ -1,5 +1,5 @@
 require 'sequel'
-DB = Sequel.sqlite
+DB = Sequel.sqlite('cache.db')
 require_relative 'create_tables'
 class Track < Sequel::Model
 	unrestrict_primary_key

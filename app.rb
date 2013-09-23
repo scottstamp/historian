@@ -34,8 +34,10 @@ class EightTracks
 	end
 end
 
-et = EightTracks.new
-cacheMix(et.get_mix_data('123455'), et.request_playlist('123455'))
+unless isCached('123455')
+	et = EightTracks.new
+	cacheMix(et.get_mix_data('123455'), et.request_playlist('123455'))
+end
 
 Mix.each do |mix|
 	mix.tracks.each do |track|

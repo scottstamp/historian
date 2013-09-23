@@ -1,5 +1,15 @@
 require_relative 'models'
 
+def isCached(mix_id=:mix_id)
+	mix = Mix.select().where(:id => mix_id.to_i)
+
+	if (defined? mix.tracks)
+		(mix.tracks.length > 0)
+	else
+		false
+	end
+end
+
 def cacheMix(mix=:mix, tracks=:tracks)
 	mix = Mix.create(
 		:id => mix['id'].to_i,

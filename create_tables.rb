@@ -1,4 +1,4 @@
-DB.create_table :tracks do
+DB.create_table? :tracks do
        	primary_key     :id
         String          :title
        	String          :artist
@@ -6,7 +6,7 @@ DB.create_table :tracks do
 	String		:type
 end
 
-DB.create_table :mixes do
+DB.create_table? :mixes do
        	primary_key     :id
         String          :name
 	String		:author
@@ -14,7 +14,7 @@ DB.create_table :mixes do
         List            :tags
 end
 
-DB.create_table :mixes_tracks do
+DB.create_table? :mixes_tracks do
        	int             :mix_id
         int             :track_id
        	primary_key [:mix_id, :track_id]
