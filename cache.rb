@@ -14,7 +14,10 @@ def cacheMix(mix=:mix, tracks=:tracks)
 		:id => mix['id'].to_i,
 		:name => mix['name'],
 		:author => mix['user']['login'],
-		:description => mix['description']
+		:description => mix['description'],
+		:description_html => mix['description_html'],
+		:tags => mix['tag_list_cache'],
+		:track_count => mix['track_count']
 	)
 
 	tracks.each do |track|

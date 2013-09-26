@@ -17,7 +17,7 @@ class EightTracks
 	def request_playlist(mix_id=:mix_id)
 		tracks = [self.request_track(mix_id, 'play')]
 		next_track = self.request_track(mix_id, 'next')
-		until next_track['set']['at_last_track']
+		until next_track['set']['at_end']
 			tracks << next_track
 			begin
 				next_track = self.request_track(mix_id, 'next')
@@ -40,7 +40,14 @@ unless isCached('123455')
 end
 
 Mix.each do |mix|
+	puts "Name: #{mix[:name]}"
+	puts "Author: #{mix[:author]}"
+	puts "Description: #{mix[:description]}"
+	puts "Number of songs: #{mix[:track_count]}"
+	puts "Tags: #{mix[:tags]}"
 	mix.tracks.each do |track|
+		puts ""
+		puts "#{track[:title]} - #{track[:artist]}"
 		puts track[:url]
 	end
 end
